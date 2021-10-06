@@ -11,7 +11,7 @@ function loadMarkers(){
 		markerDiv.setAttribute("gltf-model", "trex/skyscraper.gltf");
 		markerDiv.setAttribute("scale", "5 5 5");
 		markerDiv.setAttribute("position", "50 0 0" );
-		var element = document.getElementById("marker");
+		var element = document.getElementById("#marker");
 		element.appendChild(markerDiv);
 	}
 	else{
