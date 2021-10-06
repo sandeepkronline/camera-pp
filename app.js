@@ -7,9 +7,12 @@ function loadMarkers(){
 	
 	if( trakingId = "trex"){
 		
-		const newDiv = document.createElement("a-gltf-model", { "gltf-model": "trex/skyscraper.gltf",  "scale" : "5 5 5", "position" : "50 0 0" , "rotation":"0 90 0"});
+		const markerDiv = document.createElement("a-gltf-model");
+		markerDiv.setAttribute("gltf-model", "trex/skyscraper.gltf");
+		markerDiv.setAttribute("scale", "5 5 5");
+		markerDiv.setAttribute("position", "50 0 0 );
 		var element = document.getElementById("marker");
-		element.appendChild(newDiv);
+		element.appendChild(markerDiv);
 	}
 	else{
 		var element = document.getElementById(id);
