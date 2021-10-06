@@ -5,11 +5,15 @@
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
       <a-marker preset="hiro">
-        <a-gltf-model
+        <!--<a-gltf-model
 		  rotation = "0 0 0"
           scale="1 1 1"
           gltf-model="trex/Melite.glb"
-        ></a-gltf-mode>
+        ></a-gltf-mode>-->
+		<a-image 
+            rotation="90 0 0"
+            src="mclogo.png"></a-image>
+    </a-marker>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
