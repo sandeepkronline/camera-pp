@@ -5,7 +5,7 @@ function loadMarkers(){
 	console.log(trakingId);
 	console.log(markerId);
 	
-	if( trakingId = "trex"){
+	if( trakingId == "trex"){
 		
 		const markerDiv = document.createElement("a-gltf-model");
 		markerDiv.setAttribute("gltf-model", "trex/scene.gltf");
