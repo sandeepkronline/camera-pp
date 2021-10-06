@@ -1,28 +1,8 @@
 
 <!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>-->
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-  <script src="app.js"></script> 
-<script>
-    window.onload = function() {
-        AFRAME.registerComponent('videohandler', {
-            init: function () {
-                var marker = this.el;
-
-                this.vid = document.querySelector("#vid");
-
-                marker.addEventListener('markerFound', function () {
-                    this.vid.play();
-                }.bind(this));
-
-		marker.addEventListener('markerLost', function() {
-			this.vid.pause();
-			this.vid.currentTime = 0;
-		}.bind(this));
-            }
-        });
-    };
-</script>
+<script src="app.js"></script> 
 
 <style>
   .arjs-loader {
@@ -45,7 +25,7 @@
   }
 </style>
 
-<body style="margin : 0px; overflow: hidden;">
+<body style="margin : 0px; overflow: hidden;" onload="loadMarkers()">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
@@ -71,7 +51,7 @@
       smoothTolerance=".01"
       smoothThreshold="5"
     >
-<a-gltf-model gltf-model="trex/skyscraper.gltf" scale="5 5 5" position="50 0 0" rotation="0 0 90" > </a-gltf-model>   
+    <a-gltf-model gltf-model="trex/skyscraper.gltf" scale="5 5 5" position="50 0 0" rotation="0 90 0" > </a-gltf-model>   
 	</a-nft>
     <a-entity camera></a-entity>
   </a-scene>

@@ -1,4 +1,4 @@
-function getTrackerId(){
+function loadMarkers(){
 	const urlParams = new URLSearchParams(window.location.search)
 	console.log(urlParams);
 	let marker = urlParams.get("id")
