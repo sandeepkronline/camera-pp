@@ -7,14 +7,13 @@ function loadMarkers(){
 	
 	if( trakingId = "trex"){
 		
-		const newDiv = document.createElement("a-gltf-model", { gltf-model: "trex/skyscraper.gltf",  scale : "5 5 5", position : "50 0 0" , rotation:"0 90 0"});
+		const newDiv = document.createElement("a-gltf-model", { "gltf-model": "trex/skyscraper.gltf",  "scale" : "5 5 5", "position" : "50 0 0" , "rotation":"0 90 0"});
 		var element = document.getElementById("marker");
 		element.appendChild(newDiv);
 	}
 	else{
 		var element = document.getElementById(id);
-		const newDiv = document.createElement("a-gltf-model", { gltf-model: "trex/scene.gltf",  scale : "5 5 5", position : "50 0 0" , rotation:"0 90 0"});
-	
+		
 	}
 		
 	
