@@ -1,7 +1,8 @@
 
 <!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>-->
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
 <script src="app.js"></script> 
 
 <style>
@@ -36,25 +37,29 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
-          <a-assets>
-            <video src="mov_bbb.mp4"
-                preload="auto" id="vid" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline autoplay muted playsinline>
-            </video>
-        </a-assets>
-    <!-- we use cors proxy to avoid cross-origin problems -->
+     <!-- we use cors proxy to avoid cross-origin problems -->
     <a-nft
+	  id = "#marker"
       type="nft"
-      url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/sandeepkronline/camera-pp111/main/trex/trex-image/trex"
+      url=""
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
       smoothThreshold="5"
-    >
-	<div id=#marker> </div>
-    <!--<a-gltf-model gltf-model="trex/skyscraper.gltf" scale="5 5 5" position="50 0 0" rotation="0 90 0" > </a-gltf-model> -->  
-	</a-nft>
+    >	
+	<a-entity  rotation = "0 0 0">
+	<a-gltf-model id= "#model" gltf-model="models/3D/skyscraper.gltf" material='transparent:true;shader:flat;side:double;' scale="5 5 5" position="0 0 0" rotation="0 0 0" > </a-gltf-model>
+	</a-entity>
+   </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
+   <script>
+         // Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
+         const sceneEl = document.querySelector('a-scene');
+         sceneEl.addEventListener('loaded', () => {
+           sceneEl.camera = new THREE.PerspectiveCamera();
+	
+         });
+      </script>
 
 </body>
