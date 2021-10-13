@@ -10,13 +10,14 @@ function loadMarkers(){
 	
 
 	
-	
 	// Upadate tracking image URL
-	let baseUrl = "https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/sandeepkronline/webar/main/track/";
-	let nftUrl = baseUrl + imageId + "/" + imageId;
-	console.log(nftUrl);
-	var nftNode = document.getElementById("#marker");
-	nftNode.setAttribute("url", nftUrl);
+	let baseUrl = "https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/sandeepkronline/arcamera-app/main/track/";
+	let imageSample = baseUrl + imageId + "/" + imageId + ".mind;";
+	imageSample = "imageTargetSrc: " + imageSample;
+	console.log(imageSample);
+	
+	var sceneNode = document.getElementById("#scene");
+	sceneNode.setAttribute("mindar-image", imageSample);
 	
 	if( modelType == "3d"){
 		load3dModles();
@@ -40,28 +41,23 @@ function load3dModles(){
 	let modelId = urlParams.get("model")
 	
 	const markerDiv = document.createElement("a-gltf-model");
-	markerDiv.setAttribute("material","transparent:true;shader:flat;side:double;");
+	markerDiv.setAttribute("animation","property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate");
 	markerDiv.setAttribute("rotation", "0 0 0" );
 	markerDiv.setAttribute("position", "0 0 0" );
 	if( modelId == "1"){
-		markerDiv.setAttribute("gltf-model", "models/3D/melite.gltf");
-		markerDiv.setAttribute("scale", "50 50 50");
-		//markerDiv.setAttribute("position", "100 -300 0" );	
+		markerDiv.setAttribute("gltf-model", "models/3D/sphere.glb");
+		markerDiv.setAttribute("scale", "0.75 0.75 0.75");	
 	}
 	else if (modelId == "2"){
 		markerDiv.setAttribute("gltf-model", "models/3D/skyscraper.gltf");
-		markerDiv.setAttribute("scale", "10 10 10");
-		//markerDiv.setAttribute("position", "100 -300 0" );
-		//markerDiv.setAttribute("rotation", "0 0 0" );	
+		markerDiv.setAttribute("scale", "0.05 0.05 0.05");
 	}
 	else{
-		markerDiv.setAttribute("gltf-model", "models/3D/valentim.gltf");
-		markerDiv.setAttribute("scale", "10 10 10");
-		//markerDiv.setAttribute("position", "100 -300 0" );
-		//markerDiv.setAttribute("rotation", "0 45 45" );
+		markerDiv.setAttribute("gltf-model", "models/3D/cutecat.glb");
+		markerDiv.setAttribute("scale", "0.25 0.25 0.25");
 		
 	}
-	var element = document.getElementById("#marker");
+	var element = document.getElementById("#modelEntity");
 	element.appendChild(markerDiv);
 }
 
@@ -73,16 +69,17 @@ function loadImages(){
 	markerDiv.setAttribute("position", "0 0 0" );
 	if( modelId == "1"){
 		markerDiv.setAttribute("src", "models/Image/butterflies.gif");
-		markerDiv.setAttribute("scale", "100 100 100");
-		//markerDiv.setAttribute("rotation", "-90 0 0");	
-		//markerDiv.setAttribute("position", "100 -300 0" );
-	}else{
-		markerDiv.setAttribute("src", "models/Image/love.png");
-		markerDiv.setAttribute("scale", "100 100 100");
-		//markerDiv.setAttribute("rotation", "-90 0 0");	
-		//markerDiv.setAttribute("position", "100 -300 0" );
+		markerDiv.setAttribute("scale", "1 1 1");
 	}
-	var element = document.getElementById("#marker");
+	else if( modelId == "2"){
+		markerDiv.setAttribute("src", "models/Image/Osaka.gif");
+		markerDiv.setAttribute("scale", "1 1 1");
+	}
+	else{
+		markerDiv.setAttribute("src", "models/Image/love.png");
+		markerDiv.setAttribute("scale", "1 1 1");
+	}
+	var element = document.getElementById("#modelEntity");
 	element.appendChild(markerDiv);	
 }
 
@@ -92,13 +89,11 @@ function loadText(){
 	let modelId = urlParams.get("model")
 	const markerDiv = document.createElement("a-text");
 	markerDiv.setAttribute("value", modelId);
-	markerDiv.setAttribute("scale", "500 500 500");
+	markerDiv.setAttribute("scale", "1 1 1");
 	markerDiv.setAttribute("color", "black");
-	//markerDiv.setAttribute("rotation", "0 0 45");
-	//markerDiv.setAttribute("position", "100 -100 50" );
 	markerDiv.setAttribute("rotation", "0 0 0" );
 	markerDiv.setAttribute("position", "0 0 0" );
-	var element = document.getElementById("#marker");
+	var element = document.getElementById("#modelEntity");
 	element.appendChild(markerDiv);	
 }
 
